@@ -21,7 +21,16 @@ echo "<html><body class = \"body\"><form index=\"index.php\" method = post>
     <input class = \"input\" type = \"text\" name = \"password\"><br>
     
     <button class = \"button\" type=\"submit\" name=\"login\">Log In</button>
-</form>"
+</form>";
+
+if (isset($_POST['username']) and isset($_POST['password'])) {
+
+    //Code to handle logging in goes here
+
+    //Go to main menu when button is clicked, this should be changed to only move on with valid login
+    header("Location: menu.php");
+
+}
 ?>
 </body>
 </html>
