@@ -1,5 +1,6 @@
 .body {
     background-color: midnightblue;
+    align-content: center;
 }
 .h1 {
     color: white;
@@ -20,4 +21,16 @@
 .button {
     display: grid;
     margin: 10px auto auto;
+}
+
+.menubutton {
+    display:inline-block;;
+    width: 20%;
+    height: 10%;
+    margin: 15px auto auto;
+    text-align: center;
+}
+.buttonrow {
+    align-content: center;
+    text-align: center;
 }
