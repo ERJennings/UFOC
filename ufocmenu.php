@@ -9,7 +9,7 @@
 </head>
 <body class = body>
 <h1 class = h1>
-    Main Menu
+    UFOC Menu
 </h1>
 
 <div class = buttonrow>

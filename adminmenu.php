@@ -9,13 +9,15 @@
 </head>
 <body class = body>
 <h1 class = h1>
-    Main Menu
+    Administrator Menu
 </h1>
 
 <div class = buttonrow>
     <button class = menubutton>My Account</button>
     <button class = menubutton>Generate Reports</button>
-    <button class = menubutton>Your Activity</button>
+    <form action="ReportGenerator.php">
+        <button class = menubutton>Your Activity</button>
+    </form>
 </div>
 <div class = buttonrow>
     <button class = menubutton>Committee Vacancies</button>

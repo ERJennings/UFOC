@@ -30,6 +30,10 @@
     margin: 15px auto auto;
     text-align: center;
 }
+.linkbutton{
+    width: 100%;
+    height: 100%;
+}
 .buttonrow {
     align-content: center;
     text-align: center;
