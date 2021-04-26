@@ -3,10 +3,14 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Generator</title>
+    <title>My Activity</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
+
+<h1 class = h1>
+    My Committee Activity
+</h1>
 <?php
 
 

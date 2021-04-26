@@ -23,6 +23,13 @@
     font-size: 20px;
 }
 
+.h3 {
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 12px;
+}
+
 .button {
     display: grid;
     margin: 10px auto auto;
@@ -50,5 +57,17 @@
 
 .buttonrow {
     align-content: center;
+    text-align: center;
+}
+
+.table, .tr, .td, .th {
+    padding: 10px;
+    border: 2px solid white;
+    border-collapse: collapse;
+    color: white;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
     text-align: center;
 }
