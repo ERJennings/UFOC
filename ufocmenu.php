@@ -13,14 +13,26 @@
 </h1>
 
 <div class = buttonrow>
-    <button class = menubutton>My Account</button>
-    <button class = menubutton>Generate Reports</button>
-    <button class = menubutton>Your Activity</button>
+    <form class = menubutton action="MyAccount.php">
+        <button class = linkbutton>My Account</button>
+    </form>
+    <form class = menubutton action="ReportGenerator2.php">
+        <button class = linkbutton>Generate Reports</button>
+    </form>
+    <form class = menubutton action="ReportGenerator.php">
+        <button class = linkbutton>My Activity</button>
+    </form>
 </div>
 <div class = buttonrow>
-    <button class = menubutton>Committee Vacancies</button>
-    <button class = menubutton>Voting Portal</button>
-    <button class = menubutton>Master Calendar</button>
+    <form class = menubutton action="Vacancies.php">
+        <button class = linkbutton>Committee Vacancies</button>
+    </form>
+    <form class = menubutton action="Calendar.php">
+        <button class = linkbutton>Master Calendar</button>
+    </form>
+    <form class = menubutton action="Voting.php">
+        <button class = linkbutton>Voting Portal</button>
+    </form>
 </div>
 <div class = buttonrow>
     <button class = menubutton>Log Out</button>

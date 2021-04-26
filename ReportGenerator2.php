@@ -11,13 +11,8 @@
 
 
 /**
-		Report Generator for UFOC3 database in MYSQL. Entering the FacultyID into the 
-		text box and hitting enter will return all the relevant information in the database
-		for that particular Faculty Member. 
-		
-		This includes the facultyID, the commiittees the faculty is
-		a part of, the meetings the committees have had that the faculty is a part of, all nomination information,
-		votes cast by the faculty, and elections that committees have had that the faculty has been a part of.
+		Enetering any integer into the text box will generate all of the data in all of the tables
+		of the UFOC3 database except elections. 
 		
 		By: Jakob Brooks 4/26/2021
 */
@@ -78,77 +73,73 @@ if (isset($_POST['submit'])) {
 	}
 
 	//Faculty Information
-	$sql = "select * from faculty where FacID like \"%$faculty%\"";
+	$sql = "select * from faculty";
 	//Committees faculty belongs to
-	$sql2 = "select * from committee where CommitteeID in (select b.ComID from belongsto b where b.FacID like \"%$faculty%\")";
+	$sql2 = "select * from committee";
 	//meetings that committees that the faculty is part of have had
-	$sql3 = "select * from meeting where Committee_CommitteeID in (select CommitteeID from committee where CommitteeID in (select b.ComID from belongsto b where b.FacID like \"%$faculty%\"))";
+	$sql3 = "select * from meeting";
 	//nominations given to faculty
-	$sql4 = "select * from nominates where FacID like \"%$faculty%\"";
-	//nominations given from faculty
-	$sql5 = "select * from nominates where NominatorFacID like \"%$faculty%\"";
+	$sql4 = "select * from nominates";
 	//votes cast by faculty
-	$sql6 = "select * from votes where FacID like \"%$faculty%\"";
-	//elections committees that faculty member is a part of has had
-	$sql7 = "select * from election where Committee_CommitteeID in (select CommitteeID from committee where CommitteeID in (select b.ComID from belongsto b where b.FacID like \"%$faculty%\"))";
+	$sql5 = "select * from votes";
 	
 	$result = $conn-> query($sql);
-	$count = 0;
+	$count2 = 0;
 	if ($result-> num_rows > 0) {
+		
 		while($row = $result->fetch_assoc()) {
-			if ($count > 0) {
+			if ($count2 > 0) {
 				echo "<br><b>Faculty ID: </b>". $row["FacID"]."<b> Faculty Name: </b>". $row["FacName"]."<b> Date Hired: </b>". $row["dateHire"]."<b> Tenure(#): </b>". $row["tenure"];
 				continue;
 			}
 			echo "Faculty Information: <br><b>Faculty ID: </b>". $row["FacID"]."<b> Faculty Name: </b>". $row["FacName"]."<b> Date Hired: </b>". $row["dateHire"]."<b> Tenure(#): </b>". $row["tenure"];
-			$count = $count + 1;
-		}		
+			$count2 = $count2 + 1;
+		}
 	} else {
 		echo"<br><br>No Faculty found";
 	}
 	
 	$result = $conn-> query($sql2);
-	$count = 0;
+	$count3 = 0;
 	if ($result-> num_rows > 0) {
+		
 		while($row = $result->fetch_assoc()) {
-			if ($count > 0) {
+			if ($count3 > 0) {
 				echo "<b><br> ComID: </b>". $row["CommitteeID"]."<b> Name: </b>". $row["CommitteeName"]."<b> NumMembs: </b>". $row["numMembs"]."<b> Duty: </b>". $row["ComitDuty"];
 				continue;
 			}
 			echo "<br><br>Committee Information: <b><br> ComID: </b>". $row["CommitteeID"]."<b> Name: </b>". $row["CommitteeName"]."<b> NumMembs: </b>". $row["numMembs"]."<b> Duty: </b>". $row["ComitDuty"];
-			$count = $count + 1;
+			$count3 = $count3 + 1;
 		}
 	} else {
 		echo"<br><br>No Committees found";
 	}
 	
 	$result = $conn-> query($sql3);
-	$count = 0;
+	$count4 = 0;
 	if ($result-> num_rows > 0) {
-		
 		while($row = $result->fetch_assoc()) {
-			if ($count > 0) {
+			if ($count4 > 0) {
 				echo "<b><br> MeetingID: </b>". $row["MeetingID"]."<b> Attendance: </b>". $row["Attendance"]."<b> Date: </b>". $row["MeetingDate"];
 				continue;
 			}
 			echo "<br><br>Meeting Information: <b><br> MeetingID: </b>". $row["MeetingID"]."<b> Attendance: </b>". $row["Attendance"]."<b> Date: </b>". $row["MeetingDate"];
-			$count = $count + 1;
+			$count4 = $count4 + 1;
 		}
 	} else {
 		print'<br><br>No meetings found';
 	}
 	
 	$result = $conn-> query($sql4);
-	$count = 0;
+	$count5 = 0;
 	if ($result-> num_rows > 0) {
-		
 		while($row = $result->fetch_assoc()) {
-			if ($count > 0) {
+			if ($count5 > 0) {
 				echo "<b><br> NomID: </b>". $row["NomID"]."<b> NomDate: </b>". $row["NomDate"]."<b> NomSeat: </b>". $row["NomSeat"]."<b> FacID: </b>". $row["FacID"]."<b> NominatorFacID: </b>". $row["NominatorFacID"];
 				continue;
 			}
-			echo "<br><br>Positions You've been Nominated for: <b><br> NomID: </b>". $row["NomID"]."<b> NomDate: </b>". $row["NomDate"]."<b> NomSeat: </b>". $row["NomSeat"]."<b> FacID: </b>". $row["FacID"]."<b> NominatorFacID: </b>". $row["NominatorFacID"];
-			$count = $count + 1;
+			echo "<br><br>Nominations: <b><br> NomID: </b>". $row["NomID"]."<b> NomDate: </b>". $row["NomDate"]."<b> NomSeat: </b>". $row["NomSeat"]."<b> FacID: </b>". $row["FacID"]."<b> NominatorFacID: </b>". $row["NominatorFacID"];
+			$count5 = $count5 + 1;
 		}
 	} else {
 		print'<br><br>No nominators found';
@@ -160,46 +151,14 @@ if (isset($_POST['submit'])) {
 		
 		while($row = $result->fetch_assoc()) {
 			if ($count > 0) {
-				echo "<b><br> NomID: </b>". $row["NomID"]."<b> NomDate: </b>". $row["NomDate"]."<b> NomSeat: </b>". $row["NomSeat"]."<b> FacID: </b>". $row["FacID"]."<b> NominatorFacID: </b>". $row["NominatorFacID"];
-				continue;
-			}
-			echo "<br><br>Faculty you have nominated: <b><br> NomID: </b>". $row["NomID"]."<b> NomDate: </b>". $row["NomDate"]."<b> NomSeat: </b>". $row["NomSeat"]."<b> FacID: </b>". $row["FacID"]."<b> NominatorFacID: </b>". $row["NominatorFacID"];
-			$count = $count + 1;
-		}
-	} else {
-		print'<br><br>No Nominees found';
-	}
-	
-	$result = $conn-> query($sql6);
-	$count = 0;
-	if ($result-> num_rows > 0) {
-		
-		while($row = $result->fetch_assoc()) {
-			if ($count > 0) {
 				echo "<br><b> VoteID: </b>". $row["VoteID"]."<b> Date: </b>". $row["VotesDate"]."<b> Election: </b>". $row["Election_ElectionID"]."<b> FacID: </b>". $row["FacID"];
 				continue;
 			}
 			echo "<br><br>Votes Cast: <b><br> VoteID: </b>". $row["VoteID"]."<b> Date: </b>". $row["VotesDate"]."<b> Election: </b>". $row["Election_ElectionID"]."<b> FacID: </b>". $row["FacID"];
-			$count = $count + 1;
+			$count = $count + 1; 
 		}
 	} else {
 		echo"<br><br>No votes found";
-	}
-	
-	$result = $conn-> query($sql7);
-	$count = 0;
-	if ($result-> num_rows > 0) {
-		
-		while($row = $result->fetch_assoc()) {
-			if ($count > 0) {
-				echo "<b><br> ElectionID: </b>". $row["ElectionID"]."<b> Results: </b>". $row["Results"]."<b> Nominates: </b>". $row["Nominates"]."<b> CommitteeID: </b>". $row["Committee_CommitteeID"];
-				continue;
-			}
-			echo "<br><br>Elections: <b><br> ElectionID: </b>". $row["ElectionID"]."<b> Results: </b>". $row["Results"]."<b> Nominates: </b>". $row["Nominates"]."<b> CommitteeID: </b>". $row["Committee_CommitteeID"];
-			$count = $count + 1;
-		}
-	} else {
-		echo"<br><br>No elections found";
 	}
 
 }
