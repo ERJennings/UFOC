@@ -2,6 +2,7 @@
     background-color: midnightblue;
     align-content: center;
     color: white;
+    margin: auto;
 }
 
 .h1 {
@@ -74,4 +75,8 @@
 
 .tallblock {
     height: 40px;
+}
+
+.center {
+    margin: auto;
 }

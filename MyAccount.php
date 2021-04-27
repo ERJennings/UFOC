@@ -15,8 +15,14 @@
     <h2 class = h2>Faculty Since: July 1 2020</h2>
     <h2 class = h2>Tenure Status: Not Tenured</h2>
     <div class="buttonrow">
+        <form class = menubutton action="menu.php">
+            <button class = button>Main Menu</button>
+        </form>
+        <form class = menubutton action="adminmenu.php">
+            <button class = button>Admin Menu</button>
+        </form>
         <form class = menubutton action="ufocmenu.php">
-            <button class = button>Back</button>
+            <button class = button>UFOC Menu</button>
         </form>
     </div>
 

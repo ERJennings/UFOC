@@ -30,12 +30,25 @@ echo "<html><body class = \"body\">
 
     
 		<form ReportGenerator=\"ReportGenerator.php\" method=\"post\">
-		Enter Faculty ID: <input type=\"text\" name=\"faculty\">
+		<h3 class = \"h3\">Enter Your Faculty ID:</h3>
+		<input class = \"input\" type=\"text\" name=\"faculty\">
 		<br> <p>
-		<input type=\"submit\" value=\"Submit\" name=\"submit\">
+		<input class = \"input\" type=\"submit\" value=\"Submit\" name=\"submit\">
 		<br><br>
-		<input type=\"submit\" value=\"Back\" name=\"back\">
-		<br> <p></form>";
+	
+		<br> <p></form>
+		
+		<div class=\"buttonrow\">
+        <form class = \"menubutton\" action=\"menu.php\">
+            <button class = \"button\">Main Menu</button>
+        </form>
+        <form class = \"menubutton\" action=\"adminmenu.php\">
+            <button class = \"button\">Admin Menu</button>
+        </form>
+        <form class = \"menubutton\" action=\"ufocmenu.php\">
+            <button class = \"button\">UFOC Menu</button>
+        </form>
+    </div>";
 		
 		$faculty = $_POST['faculty'];
 		

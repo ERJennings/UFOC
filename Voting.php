@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+<h1 class = h1>
+    Voting Portal
+</h1>
 <body>
 <?php
 
@@ -25,15 +28,28 @@ echo "<html><body class = \"body\">
 
     
 		<form Voting=\"Voting.php\" method=\"post\">
-		Enter FacultyID: <input type=\"text\" name=\"faculty\">
-		Enter ElectionID first: <input type=\"text\" name=\"election\">
-		Enter Faculty Name to Vote: <input type=\"text\" name=\"name\">
+		<h3 class = \"h3\">Enter Faculty ID:</h3>
+		<input class = \"input\" type=\"text\" name=\"faculty\">
+		<h3 class = \"h3\">Enter Election ID:</h3>
+		<input class = \"input\" type=\"text\" name=\"election\">
+		<h3 class = \"h3\">Enter Nominated Faculty Name:</h3>
+		<input class = \"input\" type=\"text\" name=\"name\">
 		<br> <p>
-		<input type=\"submit\" value=\"Submit\" name=\"submit\">
+		<input class = \"input\" type=\"submit\" value=\"Submit\" name=\"submit\">
 		<br><br>
-		<input type=\"submit\" value=\"Back\" name=\"back\">
-		<input type=\"submit\" value=\"Results\" name=\"results\">
-		<br> <p></form>";
+		<input class = \"input\" type=\"submit\" value=\"Results\" name=\"results\">
+		<br> <p></form>
+		<div class=\"buttonrow\">
+        <form class = \"menubutton\" action=\"menu.php\">
+            <button class = \"button\">Main Menu</button>
+        </form>
+        <form class = \"menubutton\" action=\"adminmenu.php\">
+            <button class = \"button\">Admin Menu</button>
+        </form>
+        <form class = \"menubutton\" action=\"ufocmenu.php\">
+            <button class = \"button\">UFOC Menu</button>
+        </form>
+    </div>";
 		
 		$faculty = $_POST['faculty'];
 		$vote = $_POST['name'];

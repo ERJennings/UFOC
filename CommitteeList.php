@@ -65,7 +65,7 @@
 
 </table>
 <div class="buttonrow">
-    <form class = menubutton action="ufocmenu.php">
+    <form class = menubutton action="adminmenu.php">
         <button class = button>Back</button>
     </form>
 </div>
