@@ -35,7 +35,9 @@
     </form>
 </div>
 <div class = buttonrow>
-    <button class = menubutton>Log Out</button>
+    <form class = menubutton action="index.php">
+        <button class = linkbutton>Log Out</button>
+    </form>
 </div>
 
 </body>

@@ -14,6 +14,11 @@
     <h2 class = h2>Name: Michael Lapke</h2>
     <h2 class = h2>Faculty Since: July 1 2020</h2>
     <h2 class = h2>Tenure Status: Not Tenured</h2>
+    <div class="buttonrow">
+        <form class = menubutton action="ufocmenu.php">
+            <button class = button>Back</button>
+        </form>
+    </div>
 
 </body>
 
